@@ -3,8 +3,11 @@
 
 import os
 import asyncio
+import time
 from config import Config
 from pyrogram import Client, idle
+
+os.environ["TZ"] = "Asia/Yangon"
 
 if __name__ == "__main__" :
     if not os.path.isdir(Config.DOWNLOAD_LOCATION):
