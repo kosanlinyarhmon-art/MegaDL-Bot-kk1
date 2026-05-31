@@ -1,14 +1,10 @@
-FROM debian:latest
+FROM python:3.10-slim-buster
 
-RUN apt update && apt upgrade -y
-RUN apt install git python3-pip ffmpeg -y
+WORKDIR /app
 
-RUN cd /
-RUN git clone https://github.com/AsmSafone/MegaDL-Bot
-RUN cd MegaDL-Bot
-WORKDIR /MegaDL-Bot
+COPY . .
 
-RUN pip3 install --upgrade pip
-RUN pip3 install -U -r requirements.txt
+RUN pip3 install --upgrade pip --break-system-packages
+RUN pip3 install -U -r requirements.txt --break-system-packages
 
-CMD python3 main.py
+CMD ["python3", "main.py"]
