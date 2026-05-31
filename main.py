@@ -8,6 +8,10 @@ from config import Config
 from pyrogram import Client, idle
 
 os.environ["TZ"] = "Asia/Yangon"
+try:
+    os.system("date -s '$(curl -s --head http://google.com | grep Date: | cut -d' ' -f3-6)'")
+except:
+    pass
 
 if __name__ == "__main__" :
     if not os.path.isdir(Config.DOWNLOAD_LOCATION):
